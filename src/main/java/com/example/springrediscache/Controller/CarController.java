@@ -57,7 +57,7 @@ public class CarController {
      * invalidate existing cache entries and then create a new one.
      */
     @PostMapping("/addcar")
-    @CachePut(value = "car", key = "#car.hashCode()") // Cache the created car object
+    @Cacheable(value = "car")
     public Car createCar(@RequestBody Car car) {
         return carService.createCar(car.getCompany(), car.getModel());
     }
